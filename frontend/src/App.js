@@ -18,9 +18,21 @@ function App() {
     };
   }, []);
 
+
   return (
     <div className="app">
-      <p>Write your code here!</p>
+      <header className="app-header">
+        <h1 className="title">Sweetie Spies Control Panel</h1>
+      </header>
+      <div className="grid2">
+        <div className="item-box">
+          <h1 className="title">Camera</h1>
+          <img src="http://10.17.241.102:81/stream"/>
+        </div>
+        <div className="item-box">
+          <p>Hello!</p>
+        </div>
+      </div>
     </div>
   );
 }

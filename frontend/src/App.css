@@ -1,0 +1,44 @@
+.app {
+  background-color:  #dbc1ac;
+  display:grid;
+  position: absolute;
+  grid-template-rows: 100px auto;
+  row-gap: 80px;
+  min-width: 100%;
+  min-height: 100%;
+}
+.app-header {
+  border: 5px solid #967259;
+  border-radius: 25px;
+  background-color:  #ece0d1;
+  min-height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  position: sticky;
+  top: 5%;
+  text-align: center;
+  min-width: 75%;
+  vertical-align: middle;
+}
+.grid2 {
+  display:grid;
+  grid-template-columns: auto 25%;
+  min-height: 100%;
+  min-width: 100%;
+}
+.item-box {
+  border: 5px solid #967259;
+  border-radius: 25px;
+  background-color:  #ece0d1;
+  min-height: 60%;
+  margin: 0 10px 10px;
+  align-items: center;
+  position: sticky;
+  text-align: center;
+  min-width: 75%;
+}
+.title {
+  font-size: 10px + 50vmin;
+  color: #38220f;
+}
+
