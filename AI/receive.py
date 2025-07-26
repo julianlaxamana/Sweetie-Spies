@@ -3,12 +3,17 @@
 import requests
 import os
 import sys
+from send_to_openai import describe
+import time
 
 # Get the folder where the script is located, done for you
 script_dir = os.path.dirname(os.path.abspath(__file__))
-filename = os.path.join(script_dir, "downloaded_image.jpg")
+react_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-url = "http://172.20.10.6/1024x768.jpg"             # You will have to change the IP Address
+filename = os.path.join(react_dir, "frontend/src/downloaded_image.jpg")
+audiofile = os.path.join(react_dir, "frontend/src/description.wav")
+
+url = "http://10.136.56.102/capture"
 
 # Function to download the image from esp32, given to you
 def download_image():
@@ -23,5 +28,14 @@ def download_image():
 
 # TODO: Download the image and get a response from openai
 
+def get_description():
+    download_image()
+    time.sleep(1)
+    download_image()
+    return describe(filename, audiofile)
+
+if __name__ == "__main__":
+    get_description()
+    
 # TODO: How to control when to take photo?
 

@@ -26,11 +26,14 @@
   min-height: 100%;
   min-width: 100%;
 }
+.snapshot{
+  max-height: 70%;
+}
 .item-box {
   border: 5px solid #967259;
   border-radius: 25px;
   background-color:  #ece0d1;
-  min-height: 60%;
+  min-height: 25%;
   margin: 0 10px 10px;
   align-items: center;
   position: sticky;
