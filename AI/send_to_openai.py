@@ -1,8 +1,11 @@
 
 # TODO: Import your libaries
+from secrets import API_KEY
+from openai import OpenAI
+from gtts import gTTS
+import base64
 
-# TODO: Maybe you need a key?
-
+client = OpenAI(api_key=API_KEY)
 
 # Image encoding, code provided
 def encode_image(image_path):
@@ -11,6 +14,34 @@ def encode_image(image_path):
 
 
 # TODO: Sending a request and getting a response
+
+def describe(image_path, audiopath):
+    image = encode_image(image_path)
+
+    response = client.chat.completions.create(
+        model="gpt-4o",
+         messages=[
+            {
+                "role": "user",
+                "content": [
+                    {"type": "text", "text": "Please describe this image."},
+                    {
+                        "type": "image_url",
+                        "image_url": {
+                            "url": f"data:image/png;base64,{image}",
+                        },
+                    },
+                ],
+            }
+        ],
+        max_tokens=300,
+    )
+    answer = response.choices[0].message.content
+
+    tts = gTTS(answer)
+    tts.save(audiopath)
+    return answer
+
 
 
 
